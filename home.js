@@ -31,13 +31,12 @@ bward = () => {
     this.setState({ [input]: e.target.value });
   };
 
-  render() {
+ render() {
     const { proceed } = this.state;
     const { title,points,timeAllowed,deadline,qstn,radiobtn,cbox} = this.state;
     const choice = { title,points,timeAllowed,deadline,qstn ,radiobtn,cbox};
 
-    switch (proceed) {
-      case 1:
+if(proceed==1){
         return (
           <First
             forward={this.forward}
@@ -45,7 +44,8 @@ bward = () => {
             choice={choice}
           />
         );
-        case 2:
+}
+else if(proceed==2){
             return (
               <Second
               forward={this.forward}
@@ -54,7 +54,9 @@ bward = () => {
                 choice={choice}
               />
             );
-            case 3:
+}
+else if(proceed==3){
+
               return (
                 <Third
                 forward={this.forward}
@@ -63,8 +65,9 @@ bward = () => {
                 choice={choice}
                 />
               );
-   
-              case 4:
+              }
+              else if(proceed==4){
+
                 return (
                   <Four
                   forward={this.forward}
@@ -73,9 +76,8 @@ bward = () => {
                   choice={choice}
                   />
                 );
-     
-
-          case 5:
+                }
+                else if(proceed==5){
             alert('your quiz created successfully');
             this.setState({
               proceed: 1,
@@ -88,10 +90,8 @@ bward = () => {
            
               cbox:'', 
           });
-
+        
           return(
-              
-           
             <First
             forward={this.forward}
             handleChange={this.handleChange}
